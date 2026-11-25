@@ -363,6 +363,24 @@ h1, h2, .pageTitle, .itemName, .detailPageContent h1 {
 .detailRibbon {
   box-shadow: inset 0 1px 0 var(--cp-line), inset 0 -1px 0 var(--cp-line);
 }
+/* Poster sits level with the title strip, so the title is right next to the
+   top of the poster instead of the poster poking up into the backdrop. */
+.layout-desktop .detailImageContainer .card {
+  top: -7.2em !important;
+  margin-bottom: -7.2em !important;
+}
+.layout-desktop .detailRibbon {
+  box-sizing: border-box;
+  align-items: flex-start !important;
+  padding-top: .9em !important;
+}
+
+/* Breathing room inside the bordered details box */
+.detailSection {
+  padding: 1.2em 1.5em !important;
+  margin-top: 1em;
+}
+
 /* Orbitron is wide — let long titles wrap instead of being cut off with "…" */
 .nameContainer .itemName, .nameContainer .parentName {
   white-space: normal !important;
