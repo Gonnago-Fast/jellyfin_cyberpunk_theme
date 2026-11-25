@@ -378,6 +378,34 @@ h1, h2, .pageTitle, .itemName, .detailPageContent h1 {
   padding-top: .9em !important;
 }
 
+/* ---- Title logo: the film's own title artwork sits right above the info,
+   replacing the plain text title (films without a logo keep the text) ---- */
+.layout-desktop .itemDetailPage .detailLogo {
+  display: block !important;
+  left: 32.45vw;
+  right: auto;
+  width: min(44vw, 560px);
+  height: 14vh;
+  /* bottom edge sits just above the title strip */
+  top: calc(40vh - 7.2em - 14vh - .6em);
+  background-position: left bottom !important;
+  z-index: 3;
+  filter: drop-shadow(0 0 1px rgba(255,255,255,.6)) drop-shadow(0 0 10px rgba(var(--cp-accent-rgb), .75));
+  animation: cp-logo-in .9s ease-out both, cp-pulse 4s ease-in-out 1s infinite;
+}
+@media (max-height: 31.25em) {
+  .layout-desktop .itemDetailPage .detailLogo { top: calc(52vh - 7.2em - 14vh - .6em); }
+}
+[dir="rtl"] .layout-desktop .itemDetailPage .detailLogo { left: auto; right: 32.45vw; background-position: right bottom !important; }
+@keyframes cp-logo-in {
+  from { opacity: 0; transform: translateY(8px); filter: blur(4px) drop-shadow(0 0 0 transparent); }
+  to   { opacity: 1; transform: none; }
+}
+/* Hide the text title only when a logo image is actually present */
+.layout-desktop .itemDetailPage:has(.detailLogo[style*="url"]) .detailPagePrimaryContainer .nameContainer .itemName {
+  display: none !important;
+}
+
 /* Breathing room inside the bordered details box */
 .detailSection {
   padding: 1.2em 1.5em !important;
