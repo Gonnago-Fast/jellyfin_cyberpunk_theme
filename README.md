@@ -37,8 +37,14 @@ body::after { display: none !important; }
 
 ## Updating
 
-jsDelivr caches the `@main` URL for up to 12 hours. To pick up a change right away, open
-`https://purge.jsdelivr.net/gh/Gonnago-Fast/jellyfin_cyberpunk_theme@main/theme.css` once.
+The `@main` link follows the latest version automatically, but jsDelivr can take up to
+12 hours to notice a new commit, and browsers keep their copy for a while too.
+
+To get a specific version immediately, pin it to a commit instead of `main`, e.g.:
+
+```css
+@import url("https://cdn.jsdelivr.net/gh/Gonnago-Fast/jellyfin_cyberpunk_theme@8beeb6a/theme.css");
+```
 
 ## Licence
 
