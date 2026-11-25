@@ -378,8 +378,8 @@ h1, h2, .pageTitle, .itemName, .detailPageContent h1 {
   padding-top: .9em !important;
 }
 
-/* ---- Title logo: the film's own title artwork sits right above the info,
-   replacing the plain text title (films without a logo keep the text) ---- */
+/* ---- Title logo: the film's own title artwork, centred in the header
+   above the info (the text title below stays visible) ---- */
 .layout-desktop .itemDetailPage .detailLogo {
   display: block !important;
   /* centred horizontally in the header, whatever the logo's shape */
@@ -401,10 +401,6 @@ h1, h2, .pageTitle, .itemName, .detailPageContent h1 {
 @keyframes cp-logo-in {
   from { opacity: 0; transform: translateY(8px); filter: blur(4px) drop-shadow(0 0 0 transparent); }
   to   { opacity: 1; transform: none; }
-}
-/* Hide the text title only when a logo image is actually present */
-.layout-desktop .itemDetailPage:has(.detailLogo[style*="url"]) .detailPagePrimaryContainer .nameContainer .itemName {
-  display: none !important;
 }
 
 /* Breathing room inside the bordered details box */

@@ -61,3 +61,9 @@ body::before { display: none !important; }
 ```
 
 All animations are disabled automatically if your device has "reduce motion" enabled.
+
+## Library tiles
+
+`library-images/` has matching artwork for the Movies, Shows and Music libraries
+(1920×1080). Set one via **Dashboard → Libraries → ⋯ → Edit images**. `generate.js`
+re-creates them (Node + `@resvg/resvg-js`, Orbitron and Share Tech Mono fonts).
