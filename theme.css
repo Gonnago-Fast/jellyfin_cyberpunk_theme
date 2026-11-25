@@ -68,7 +68,10 @@ body, button, input, select, textarea, .emby-button, .emby-input, .emby-select, 
 body::after {
   content: "";
   position: fixed;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   pointer-events: none;
   z-index: 99999;
   background: repeating-linear-gradient(0deg, rgba(0,0,0,.18) 0 1px, transparent 1px 3px);
@@ -77,8 +80,8 @@ body::after {
 }
 
 /* Hide scanlines while a video is playing */
-html.transparentDocument body::after,
-body:has(.videoPlayerContainer)::after { display: none; }
+html.transparentDocument body::after { display: none; }
+body:has(.videoPlayerContainer)::after { display: none; } /* separate rule: older app engines drop a whole rule they can't parse */
 
 ::selection { background: var(--cp-accent); color: #fff; }
 
@@ -511,13 +514,23 @@ body::before {
   content: "> NEON//GRID OS v2.077\A> ESTABLISHING UPLINK ........ OK\A> DECRYPTING MEDIA VAULT ...... OK\A> SYNCING NEURAL INTERFACE .... OK\A\A  ACCESS GRANTED_";
   white-space: pre;
   position: fixed;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
   z-index: 100000;
   pointer-events: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
+  text-align: left;
+  /* Centre the 6-line, ~34-character block with plain padding (works in every
+     engine, including the older ones inside the Jellyfin apps) */
+  padding-top: calc(50vh - 5.1em);
+  padding-left: calc(50vw - 17ch);
   font-family: var(--cp-font-mono);
+  font-size: 16px;                          /* fallback for older app engines */
   font-size: clamp(13px, 1.6vw, 22px);
   line-height: 1.7;
   color: var(--cp-accent-hi);
@@ -548,7 +561,10 @@ body::before {
 .cardScalable::after {
   content: "";
   position: absolute;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: 2;
   pointer-events: none;
   background: linear-gradient(115deg,
