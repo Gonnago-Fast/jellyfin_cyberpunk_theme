@@ -344,7 +344,69 @@ h1, h2, .pageTitle, .itemName, .detailPageContent h1 {
 }
 .mdl-slider::-webkit-slider-thumb { background: #fff !important; box-shadow: 0 0 0 3px var(--cp-accent), var(--cp-glow) !important; }
 .mdl-slider::-moz-range-thumb { background: #fff !important; box-shadow: 0 0 0 3px var(--cp-accent), var(--cp-glow) !important; }
-.sliderBubble { background: var(--cp-accent) !important; border-radius: 0 !important; font-family: var(--cp-font-mono); }
+/* Seek popup above the progress bar: HUD readout with corner brackets */
+.sliderBubble {
+  --cp-br: var(--cp-accent);
+  background:
+    linear-gradient(var(--cp-br), var(--cp-br)) left top / 10px 2px no-repeat,
+    linear-gradient(var(--cp-br), var(--cp-br)) left top / 2px 10px no-repeat,
+    linear-gradient(var(--cp-br), var(--cp-br)) right top / 10px 2px no-repeat,
+    linear-gradient(var(--cp-br), var(--cp-br)) right top / 2px 10px no-repeat,
+    linear-gradient(var(--cp-br), var(--cp-br)) left bottom / 10px 2px no-repeat,
+    linear-gradient(var(--cp-br), var(--cp-br)) left bottom / 2px 10px no-repeat,
+    linear-gradient(var(--cp-br), var(--cp-br)) right bottom / 10px 2px no-repeat,
+    linear-gradient(var(--cp-br), var(--cp-br)) right bottom / 2px 10px no-repeat,
+    linear-gradient(180deg, rgba(26, 14, 46, .94), rgba(10, 7, 19, .94)) !important;
+  border: 1px solid var(--cp-line) !important;
+  border-radius: 0 !important;
+  box-shadow: 0 0 18px rgba(var(--cp-accent-rgb), .45), inset 0 0 14px rgba(var(--cp-accent-rgb), .18) !important;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  padding: .3em .9em .45em !important;
+  overflow: visible !important;
+  font-family: var(--cp-font-mono);
+}
+.sliderBubble::before {
+  content: "SEEK //";
+  display: block;
+  font-family: var(--cp-font-mono);
+  font-size: 10px;
+  letter-spacing: .3em;
+  color: var(--cp-text-dim);
+  text-align: center;
+  margin-bottom: .1em;
+}
+.sliderBubble::after {                  /* little pointer down to the bar */
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -7px;
+  width: 11px;
+  height: 11px;
+  background: rgb(10, 7, 19);
+  border-right: 1px solid var(--cp-accent);
+  border-bottom: 1px solid var(--cp-accent);
+  transform: translateX(-50%) rotate(45deg);
+}
+.sliderBubbleText {
+  margin: 0 !important;
+  font-family: var(--cp-font-mono) !important;
+  font-weight: 400 !important;
+  font-size: 1.35em !important;
+  letter-spacing: .08em;
+  color: #fff !important;
+  text-shadow: 0 0 6px rgba(var(--cp-accent-rgb), .9), 0 0 14px rgba(var(--cp-accent-rgb), .5);
+}
+/* With preview thumbnails (trickplay / chapter images) */
+.sliderBubble img, .sliderBubble .chapterThumb, .sliderBubble .chapterThumbContainer {
+  border: 1px solid var(--cp-line);
+  border-radius: 0 !important;
+}
+.sliderBubble .chapterThumbText, .sliderBubble .chapterThumbTextContainer {
+  font-family: var(--cp-font-mono) !important;
+  color: var(--cp-text) !important;
+  background: transparent !important;
+}
 
 .videoOsdBottom {
   background: linear-gradient(0deg, rgba(7,5,13,.92), rgba(7,5,13,.55) 70%, transparent) !important;
