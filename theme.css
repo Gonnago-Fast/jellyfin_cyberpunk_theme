@@ -81,6 +81,13 @@ body::after {
 
 /* Hide scanlines while a video is playing */
 html.transparentDocument body::after { display: none; }
+
+/* No purple edge on the (collapsed) top bar while a video plays */
+html.transparentDocument .skinHeader,
+html.transparentDocument .MuiAppBar-root {
+  border: 0 !important;
+  box-shadow: none !important;
+}
 body:has(.videoPlayerContainer)::after { display: none; } /* separate rule: older app engines drop a whole rule they can't parse */
 
 ::selection { background: var(--cp-accent); color: #fff; }
@@ -442,7 +449,8 @@ h1, h2, .pageTitle, .itemName, .detailPageContent h1 {
 }
 
 /* Dialogs / menus */
-.dialog, .formDialog, .actionSheet, .actionSheetContent, .MuiPaper-root, .MuiMenu-paper {
+/* Only real pop-ups — not every MUI "paper" (the top bar is one too) */
+.dialog, .formDialog, .actionSheet, .actionSheetContent, .MuiDialog-paper, .MuiPopover-paper, .MuiMenu-paper {
   background: var(--cp-panel-solid) !important;
   border: 1px solid var(--cp-accent) !important;
   border-radius: 0 !important;
