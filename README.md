@@ -43,3 +43,15 @@ jsDelivr caches the `@main` URL for up to 12 hours. To pick up a change right aw
 ## Licence
 
 MIT
+
+## Boot screen & effects
+
+On load, a short "NEON//GRID OS" boot sequence plays (it never blocks clicks and is skipped when you open straight into a video). Hovering a card triggers a holographic light sweep and an RGB-split glitch on its title.
+
+Turn the boot screen off:
+
+```css
+body::before { display: none !important; }
+```
+
+All animations are disabled automatically if your device has "reduce motion" enabled.
