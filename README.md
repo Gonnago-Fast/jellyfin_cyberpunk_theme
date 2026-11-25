@@ -46,7 +46,7 @@ MIT
 
 ## Boot screen & effects
 
-On load, a short "NEON//GRID OS" boot sequence plays (it never blocks clicks and is skipped when you open straight into a video). Hovering a card triggers a holographic light sweep and an RGB-split glitch on its title.
+On load, a short "NEON//GRID OS" boot sequence plays (about 2.5 seconds, and it never blocks clicks). Hovering a card triggers a holographic light sweep and an RGB-split glitch on its title.
 
 Turn the boot screen off:
 
