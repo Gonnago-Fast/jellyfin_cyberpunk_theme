@@ -60,13 +60,6 @@ Turn the boot screen off:
 body::before { display: none !important; }
 ```
 
-Starting a film or episode plays a ~3 second neon projector countdown
-(3 · 2 · 1 · ▶ with a rotating sweep, then an iris reveal). Turn it off:
-
-```css
-.videoPlayerContainer::before, .videoPlayerContainer::after { display: none !important; }
-```
-
 All animations are disabled automatically if your device has "reduce motion" enabled.
 
 ## Library tiles
