@@ -60,6 +60,13 @@ Turn the boot screen off:
 body::before { display: none !important; }
 ```
 
+Starting a film or episode plays a ~2 second "jack-in" intro (stream status lines,
+then a CRT power-on reveal). Turn it off:
+
+```css
+.videoPlayerContainer::after { display: none !important; }
+```
+
 All animations are disabled automatically if your device has "reduce motion" enabled.
 
 ## Library tiles
